@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="connectionevent.css">
+        <link rel="stylesheet" href="adminconnectionevent.css">
+    </head>
+    <script>
+        function buttonchange(coart, status){
+            // 終了ボタン
+            if(status == 0) {
+                const message = window.confirm("終了します。よろしいですか？");
+                if(message) {
+                    const button = document.getElementById("button-end");
+                    const cbutton = document.getElementById("button-connectionend");
+                    button.disabled = true;
+                    cbutton.disabled = false;
+                    document.getElementById("change-message-first").innerText = "お疲れ様でした。お忘れ物にお気をつけください。";
+                    document.getElementById("change-message-second").innerText = "次のご案内をお待ちください。";
+                }else {
+                    return;
+                }
+            // 開始ボタン
+            }else if(status == 1) {
+                const message = window.confirm("試合を開始します。");
+                if(message) {
+                    const sbutton = document.getElementById("button-start");
+                    const ebutton = document.getElementById("button-end");
+                    sbutton.disabled = true;
+                    ebutton.disabled = false;
+                    document.getElementById("change-message-first").innerText = "試合中です。";
+                    document.getElementById("change-message-second").innerText = "対戦後は[試合終了]ボタンを押してください";
+                }else {
+                    return;
+                }
+            }
+            // コート状況の更新処理を下記に記述予定
+        }
+        function connectionend(coartid, userid) {
+            const result = window.confirm("退出します。本当によろしいでしょうか。");
+            if(result) {
+                alert("お疲れ様でした。お気をつけてご帰宅ください。");
+                window.location.replace("index.html");
+                // 退出後の処理を下記に記述予定
+            }else {
+                return;
+            }
+        }
+
+        // 管理者向け"進捗状況" <> "自身ゲーム開始終了"画面切り替え
+        function changepage() {
+            const buttonchange = document.getElementById("button-change").value;
+            if(buttonchange == 0) {
+                const generalpage = document.getElementById("generalpage");
+                const adminpage = document.getElementById("adminpage");
+                generalpage.style.display = "none";
+                adminpage.style.display = "block";
+                document.getElementById("button-change").value = 1;
+            }else if(buttonchange == 1) {
+                adminpage.style.display = "none";
+                generalpage.style.display = "block";
+                document.getElementById("button-change").value = 0;
+            }
+        }
+        
+        // 時間経過表示用
+        window.addEventListener('load', function() {
+            let m = 0;
+            let s = 0;
+            document.getElementById("status-timer-2").textContent = m + "分" + s + "秒経過";
+            // タイマー(1分毎)
+            setInterval(() => {
+                s++;
+                if(s > 59) {
+                    m++;
+                    s = 0;
+                }
+                document.getElementById("status-timer-2").textContent = m + "分" + s + "秒経過";
+            }, 1000);
+        });
+
+        // 試合終了時
+        function endgame() {
+            const delgame = document.getElementById("court1");
+            delgame.style.display = "none";
+
+            const nextgame = document.getElementById("court3");
+            nextgame.style.background = "#ffffff";
+            document.getElementById("court3-num").textContent = "コート1";
+            document.getElementById("court3-status").textContent = "受付中";
+            const court3 = document.getElementById("court3-status");
+            court3.style.color = "#00ff80";
+            let m2 = 0;
+            let s2 = 0;
+            document.getElementById("status-timer-3").textContent = m2 + "分" + s2 +"秒経過";
+            setInterval(() => {
+                console.log("hello");
+                s2++;
+                if(s2 > 59) {
+                    m2++;
+                    s2 = 0;
+                }
+                document.getElementById("status-timer-3").textContent = m2 + "分" + s2 +"秒経過";
+            }, 1000);
+        }
+
+    </script>
+    <body>
+        <header>
+            <a href="index.html">アプリ名</a>
+        </header>
+        <main>
+            <!-- 状況更新用 -->
+            <div id="generalpage">
+                <div class="div-message">
+                    <div id="change-message-first">お待たせ致しました。</div>
+                    <div id="change-message-second"></div>
+                    <div id="change-message-third">コートへ向かって[試合開始]ボタンを押してください</div>
+                </div>
+                <div class="div-statusbutton">
+                    <button id="button-start" type="submit" onclick="buttonchange(3, 1)">試合開始</button>
+                    <br>
+                    <button id="button-end" class="button-end" type="submit" onclick="buttonchange(3, 0)" disabled>試合終了</button>
+                    <br>
+                    <button id="button-connectionend" type="submit" onclick="connectionend('ab', 'cd')" disabled>退出する</button>
+                </div>    
+            </div>
+            <!-- 管理者権限 -->
+            <div id="adminpage">
+                <div class="nowcoart" id="court1">
+                    <div>コート1</div>
+                    <div>Aさん&Bさんペア&emsp;&emsp;vs&emsp;&emsp;Cさん&Dさんペア</div>
+                    <div class="div-status-game">試合中</div>
+                </div>
+                <div class="nowcoart">
+                    <div>コート2</div>
+                    <div>Aさん&Bさんペア&emsp;&emsp;vs&emsp;&emsp;Cさん&Dさんペア</div>
+                    <div>
+                        <div class="div-status-stay">受付中</div>
+                        <div class="div-status-timer" id="status-timer-2"></div>
+                    </div>
+                </div>
+                <div class="nextcoart" id="court3">
+                    <div id="court3-num">コート空待ち</div>
+                    <div>Aさん&Bさんペア&emsp;&emsp;vs&emsp;&emsp;Cさん&Dさんペア</div>
+                    <div>
+                        <div class="div-status-stay status-standby" id="court3-status">---</div>
+                        <div class="div-status-timer" id="status-timer-3"></div>
+                    </div>
+                </div>
+                <div class="nextcoart">
+                    <div>コート空待ち</div>
+                    <div>Aさん&Bさんペア&emsp;&emsp;vs&emsp;&emsp;Cさん&Dさんペア</div>
+                    <div>---</div>
+                </div>
+            </div>
+            <button id="button-change" type="submit" onclick="changepage()" value="1">管理者用</button>
+            <button id="button-change" type="submit" onclick="endgame()">終了</button>
+        </main>
+    </body>
+</html>

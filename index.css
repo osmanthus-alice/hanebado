@@ -1,0 +1,22 @@
+.div-contents {
+    width: 50vw;
+    height: auto;
+    margin: 0 auto;
+    text-align: center; 
+    margin-bottom: 1.5em;
+}
+.div-contents p {
+    text-align: left;
+}
+.p-old-information {
+    display: flex;
+    justify-content: flex-end;
+    color: #aaaaff;
+}
+.send-contents {
+    width: 30vw;
+    margin: 0 auto;
+    margin-top: 1em;
+    padding: 0.5em;
+    border: solid 0.1em #454545;
+}

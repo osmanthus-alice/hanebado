@@ -1,0 +1,26 @@
+.div-contents {
+    width: 50vw;
+    height: auto;
+    margin: 0 auto;
+    text-align: center; 
+    margin-bottom: 1.5em;
+}
+.send-contents {
+    width: 10vw;
+    margin: 0 auto;
+    margin: 0.3em auto;
+    padding: 0.5em;
+    text-align: center;
+    border: solid 0.1em #454545;
+}
+.genenal-contents-today {
+    width: 60vw;
+    height: auto;
+    margin: 1em auto;
+    text-align: center;
+    margin-bottom: 1.5em;
+    border: solid 0.1em #454545;
+}
+.button-connection {
+    margin-bottom: 0.5em;
+}

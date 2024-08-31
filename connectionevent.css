@@ -1,0 +1,32 @@
+.div-message {
+    text-align: center;
+    height: 40vh;
+}
+.div-statusbutton {
+    text-align: center;
+}
+.div-statusbutton button {
+    width: 30vw;
+    height: 10vh;
+    font-size:large;
+    color: #ffffff;
+    background-color: #00dd80;
+}
+.div-statusbutton button:disabled {
+    color: #454545;
+    background-color: #ababab;
+}
+.button-end {
+    margin:5vh 0;
+}
+#button-connectionend {
+    color: #454545;
+    background-color: #dd0080;
+}
+#button-connectionend:disabled {
+    color: #454545;
+    background-color: #ababab;
+}
+#generalpage {
+    display: none;
+}

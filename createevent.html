@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="createevent.css">
+    </head>
+    <body>
+        <header>アプリ名</header>
+        <main>
+            <h1 class="header-style">作成</h1>
+            <div class="create-events">
+                <p>イベント名:
+                    <input type="text" placeholder="32文字以内">
+                </p>
+            </div>
+            <div class="create-events">
+                <p>開催場所:
+                    <input type="text" placeholder="住所">
+                    <input type="text"placeholder="建物/施設名">
+                    <button onclick="location.href='https://www.google.co.jp/maps/?hl=ja'">Mapから探す</button>
+                </p>
+            </div>
+            <div class="create-events">
+                <p>開催日時:
+                <input type="text" placeholder="yyyymmdd">
+                <select>
+                    <option value="8">8時</option>
+                    <option value="8">9時</option>
+                    <option value="8">10時</option>
+                    <option value="8">11時</option>
+                    <option value="8">12時</option>
+                    <option value="8">13時</option>
+                    <option value="8">14時</option>
+                    <option value="8">15時</option>
+                    <option value="8">16時</option>
+                    <option value="8">17時</option>
+                    <option value="8">18時</option>
+                    <option value="8">19時</option>
+                </select>
+                &nbsp;~&nbsp;
+                <select>
+                    <option value="8">9時</option>
+                    <option value="8">10時</option>
+                    <option value="8">11時</option>
+                    <option value="8">12時</option>
+                    <option value="8">13時</option>
+                    <option value="8">14時</option>
+                    <option value="8">15時</option>
+                    <option value="8">16時</option>
+                    <option value="8">17時</option>
+                    <option value="8">18時</option>
+                    <option value="8">19時</option>
+                    <option value="8">20時</option>
+                </select>
+            </div>
+            <div class="create-events">
+                <p>説明:
+                    <input type="text">
+                </p>
+            </div>
+            <div class="create-events">
+                <p>ユーザー追加</p>
+                <input type="text" value="令和バドミントンの申し子">
+                <button type="submit" disabled>削除</button>
+                <br>
+                <input type="text" value="人類最大の汚点">
+                <button type="submit">削除</button>
+                <br>
+                <input type="text" value="デンジャラスじいさん">
+                <button type="submit">削除</button>
+                <br>
+                <input type="text" value="星街すいせい">
+                <button type="submit">削除</button>
+                <br>
+                <input type="text" value="ビル・ゲイツ">
+                <button type="submit">削除</button>
+                <br>
+                <input type="text">
+                <button type="submit">追加</button>
+            </div>
+            <div class="create-events button-aria">
+                <button>作成</button>
+                <button disabled>更新</button>
+                <button disabled>削除</button>    
+            </div>
+        </main>
+    </body>
+</html>

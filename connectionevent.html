@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="connectionevent.css">
+    </head>
+    <script>
+        function buttonchange(coart, status){
+            // 終了ボタン
+            if(status == 0) {
+                const message = window.confirm("終了します。よろしいですか？");
+                if(message) {
+                    const button = document.getElementById("button-end");
+                    const cbutton = document.getElementById("button-connectionend");
+                    button.disabled = true;
+                    cbutton.disabled = false;
+                    document.getElementById("change-message-first").innerText = "お疲れ様でした。お忘れ物にお気をつけください。";
+                    document.getElementById("change-message-second").innerText = "次のご案内をお待ちください。";
+                }else {
+                    return;
+                }
+            // 開始ボタン
+            }else if(status == 1) {
+                const message = window.confirm("試合を開始します。");
+                if(message) {
+                    const sbutton = document.getElementById("button-start");
+                    const ebutton = document.getElementById("button-end");
+                    sbutton.disabled = true;
+                    ebutton.disabled = false;
+                    document.getElementById("change-message-first").innerText = "試合中です。";
+                    document.getElementById("change-message-second").innerText = "対戦後は[試合終了]ボタンを押してください";
+                }else {
+                    return;
+                }
+            }
+            // コート状況の更新処理を下記に記述予定
+        }
+        function connectionend(coartid, userid) {
+            const result = window.confirm("退出します。本当によろしいでしょうか。");
+            if(result) {
+                alert("お疲れ様でした。お気をつけてご帰宅ください。");
+                window.location.replace("index.html");
+                // 退出後の処理を下記に記述予定
+            }else {
+                return;
+            }
+        }
+    </script>
+    <body>
+        <header>
+            <a href="index.html">アプリ名</a>
+        </header>
+        <main>
+            <div class="div-message">
+                <div id="change-message-first">お待たせ致しました。</div>
+                <div id="change-message-second"></div>
+                <div id="change-message-third">コートへ向かって[試合開始]ボタンを押してください</div>
+            </div>
+            <div class="div-statusbutton">
+                <button id="button-start" type="submit" onclick="buttonchange(3, 1)">試合開始</button>
+                <br>
+                <button id="button-end" class="button-end" type="submit" onclick="buttonchange(3, 0)" disabled>試合終了</button>
+                <br>
+                <button id="button-connectionend" type="submit" onclick="connectionend('ab', 'cd')" disabled>退出する</button>
+            </div>
+        </main>
+    </body>
+</html>

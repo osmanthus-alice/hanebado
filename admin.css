@@ -1,0 +1,8 @@
+.send-contents {
+    width: 30vw;
+    margin: 0 auto;
+    margin-top: 1em;
+    padding: 0.5em;
+    border: solid 0.1em #454545;
+    text-align: center;
+}

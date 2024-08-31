@@ -1,0 +1,30 @@
+.nowcoart {
+    width: 60vw;
+    height: auto;
+    margin: 0 auto;
+    padding: 1vh 0;
+    margin-bottom: 3vh;
+    text-align: center;
+    border: solid 0.1em #454545;
+    box-shadow: 0 10px 15px 0 rgba(80, 80, 80, 0.3);
+}
+.div-status-game {
+    color: #ff0000;
+}
+.div-status-stay {
+    color: #00ff80;
+}
+.nextcoart {
+    width: 60vw;
+    height: auto;
+    margin: 0 auto;
+    padding: 1vh 0;
+    margin-bottom: 3vh;
+    text-align: center;
+    background-color: #dedede; 
+    border: solid 0.1em #454545;
+    box-shadow: 0 10px 15px 0 rgba(80, 80, 80, 0.3);
+}
+.status-standby {
+    color: #454545;
+}

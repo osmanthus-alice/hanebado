@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="general.css">
+    </head>
+    <script>
+        function cancelevent(e) {
+            const result = window.confirm("参加を取り消してよろしいでしょうか");
+            if(result) {
+                const calevent = "div-contents-" + e;
+                const targetevent = document.getElementById(calevent);
+                targetevent.style.display = "none";
+                alert("参加をキャンセルしました");
+            }
+        }
+    </script>
+    <body>
+        <header>
+            <a href="index.html">アプリ名</a>
+        </header>
+        <main>
+            <h1 class="header-style">本日のイベント(05月16日)</h1>
+            <div class="genenal-contents-today">
+                <a href="eventcontents.html">
+                    <div>
+                        <p>【千葉コミュニティセンター ふれあい運動会】&emsp;24/05/21&nbsp;09:00-18:00</p>
+                        <p>千葉県千葉市稲毛区穴川４丁目１２−３&emsp;千葉市稲毛区穴川コミュニティセンター</p>    
+                    </div>
+                </a>
+                <button class="button-connection" onclick="location.href='connectionevent.html'">参加はこちら</button>
+            </div>
+            <h2 class="header-style">参加予定のイベント</h2>
+            <div id="div-contents-1" class="genenal-contents-today">
+                <a href="eventcontents.html">
+                    <div>
+                        <p>【私だだあああぁぁぁぁ！！！！】&emsp;24/05/21&nbsp;09:00-18:00</p>
+                        <p>千葉県千葉市稲毛区穴川４丁目１２−３&emsp;千葉市稲毛区穴川コミュニティセンター</p>    
+                    </div>
+                </a>
+                <button class="button-connection" onclick="cancelevent(1)">取消</button>
+            </div>
+            <div id="div-contents-2" class="genenal-contents-today">
+                <a href="eventcontents.html">
+                    <div>
+                        <p>【千葉コミュニティセンター ふれあい運動会】&emsp;24/05/21&nbsp;09:00-18:00</p>
+                        <p>千葉県千葉市稲毛区穴川４丁目１２−３&emsp;千葉市稲毛区穴川コミュニティセンター</p>    
+                    </div>
+                </a>
+                <button class="button-connection" onclick="cancelevent(2)">取消</button>
+            </div>
+            <h2 class="header-style">イベントを探す</h2>
+            <div class="div-contents">
+                <div class="send-contents">
+                    <a href="eventlist.html">探す</a>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
